@@ -1,8 +1,6 @@
-
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
-import About from './pages/About';
 import Projects from './pages/Projects';
 import Thoughts from './pages/Thoughts';
 
@@ -10,66 +8,63 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const renderContent = () => {
-  switch (activeSection) {
-    case 'home':
-      return <Home />;
-    case 'about':
-      return <About />;
-    case 'projects':
-      return <Projects />;
-    case 'thoughts':
-      return <Thoughts />;
-    default:
-      return <Home />;
-  }
-};
+    switch (activeSection) {
+      case 'home':
+        return <Home />;
+      case 'work':
+        return <Projects />;
+      case 'thoughts':
+        return <Thoughts />;
+      default:
+        return <Home />;
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white font-mono">
+    <div className="min-h-screen bg-stone-50" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
       <div className="flex">
         {/* Left side - Navigation */}
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
 
         {/* Right side - Content */}
-        <div className="w-2/3 p-8">
-          <div className="max-w-4xl">
+        <div className="flex-1 p-8 bg-stone-50 overflow-y-auto">
+          <div className="max-w-2xl">
             <div
               key={activeSection}
-              className="animate-in fade-in duration-300"
+              className="transition-opacity duration-300"
             >
               {renderContent()}
             </div>
           </div>
 
           {/* Footer */}
-          <div className="mt-16 pt-8 border-t border-gray-800">
-            <div className="flex justify-between items-center text-gray-500 text-sm">
-              <p>built with caffeine and questionable decisions</p>
-             <div className="flex space-x-4">
-  <a
-    href="https://github.com/siddhikurne2662"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="cursor-pointer hover:text-white transition-colors text-gray-400"
-  >
-    github
-  </a>
-  <a
-    href="mailto:siddhi.s.kurne@gmail.com"
-    className="cursor-pointer hover:text-white transition-colors text-gray-400"
-  >
-    email
-  </a>
-  <a
-    href="https://www.linkedin.com/in/siddhikurne"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="cursor-pointer hover:text-white transition-colors text-gray-400"
-  >
-    linkedin
-  </a>
-</div>
-
+          <div className="mt-16 pt-8 border-t border-stone-300">
+            <div className="flex justify-between items-center text-stone-500 text-sm font-light">
+              <p className="italic">built with 2 hours of sleep and mild confusion</p>
+              <div className="flex space-x-4">
+                <a
+                  href="https://github.com/siddhikurne2662"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-stone-700 transition-colors"
+                >
+                  github
+                </a>
+                <a
+                  href="mailto:siddhi.s.kurne@gmail.com"
+                  className="hover:text-stone-700 transition-colors"
+                >
+                  email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/siddhikurne"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-stone-700 transition-colors"
+                >
+                  linkedin
+                </a>
+              </div>
             </div>
           </div>
         </div>
