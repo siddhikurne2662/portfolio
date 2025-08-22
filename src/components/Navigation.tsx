@@ -13,7 +13,7 @@ const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
     return () => clearInterval(timer);
   }, []);
 
-  const sections = ['home', 'work', 'thoughts'];
+  const sections = ['home', 'work', 'thoughts', 'photos'];
 
   return (
     <div className="w-64 p-8 bg-stone-100 h-screen border-r border-stone-200" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
